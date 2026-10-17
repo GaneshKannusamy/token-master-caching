@@ -1,0 +1,245 @@
+{
+  "dataset": "QuALITY v1.0.1 dev (htmlstripped)",
+  "dataset_url": "https://github.com/nyu-mll/quality",
+  "paper": "https://arxiv.org/abs/2112.08608",
+  "seed": 20261017,
+  "filters": {
+    "est_tokens_min": 3500,
+    "est_tokens_max": 8000,
+    "min_questions": 5,
+    "max_questions_per_passage": 8,
+    "n_passages": 20,
+    "token_estimate": "len(words)*1.33; must be re-counted with provider endpoint"
+  },
+  "stats": {
+    "articles_in_split": 115,
+    "candidates_after_filter": 89,
+    "selected_passages": 20,
+    "selected_questions": 160,
+    "non_warmup_requests_per_arm": 140
+  },
+  "passages": [
+    {
+      "article_id": "22967",
+      "title": "The Stoker and the Stars",
+      "author": "Budrys, Algis",
+      "year": 1965,
+      "est_tokens": 5813,
+      "n_questions": 8,
+      "article_sha256": "53d358342981373e146819fee31dcd2b06e087604842793b40b8ee1a1400aefc",
+      "provider_token_count": 9162,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "23563",
+      "title": "Viewpoint",
+      "author": "Garrett, Randall",
+      "year": 1957,
+      "est_tokens": 5338,
+      "n_questions": 8,
+      "article_sha256": "7b186cbcdd4cfd62f9713ba8899a01e3105424d0105dc87b9f7a56da55c22f91",
+      "provider_token_count": 7736,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "30035",
+      "title": "Off Course",
+      "author": "Reynolds, Mack",
+      "year": 1950,
+      "est_tokens": 3606,
+      "n_questions": 8,
+      "article_sha256": "16f1809550e9b092056aa2aa5f52bac86d6dbd810aeb5e2db50afc21c94817fc",
+      "provider_token_count": 6738,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "32665",
+      "title": "The Anglers of Arz",
+      "author": "Aycock, Roger D.",
+      "year": 1959,
+      "est_tokens": 4109,
+      "n_questions": 8,
+      "article_sha256": "ac9bf89d2f44b36ba38df20e4e1ffddf79d4b74945a0f0de26e4595dc7dbcfc6",
+      "provider_token_count": 6931,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "40965",
+      "title": "Time and the Woman",
+      "author": "Dewey, G. Gordon",
+      "year": 1956,
+      "est_tokens": 6300,
+      "n_questions": 8,
+      "article_sha256": "5dcbca8da9a4f98c440f2a5c975753ce68f16b6681aeb0ae875d6769ca422326",
+      "provider_token_count": 9911,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "49897",
+      "title": "The Gravity Business",
+      "author": "Gunn, James E.",
+      "year": 1963,
+      "est_tokens": 6696,
+      "n_questions": 8,
+      "article_sha256": "02bfd2022572556908c32aa4384a7e2f5a7d73a92127789af2d5f0493ec3521a",
+      "provider_token_count": 11611,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51351",
+      "title": "The Spicy Sound of Success",
+      "author": "Harmon, Jim",
+      "year": 1972,
+      "est_tokens": 7433,
+      "n_questions": 8,
+      "article_sha256": "3b37faa370d4020981b9841e9fd78c5d93153cefd13ba4f7ff533fb360b493de",
+      "provider_token_count": 11967,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51362",
+      "title": "Lex",
+      "author": "Haggert, W. T.",
+      "year": 1954,
+      "est_tokens": 7284,
+      "n_questions": 8,
+      "article_sha256": "efbef277752ae0f9b375e6d9f2c29f3011365bcff96fd59394c79f2fee30c04c",
+      "provider_token_count": 11210,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51436",
+      "title": "Bullet with His Name",
+      "author": "Leiber, Fritz",
+      "year": 1972,
+      "est_tokens": 6825,
+      "n_questions": 8,
+      "article_sha256": "2b9290e1c826c73be5bd8df08e438aadceed0fed5c0f6d0d0d88d713b7a87b8b",
+      "provider_token_count": 11042,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51483",
+      "title": "The Reluctant Heroes",
+      "author": "Robinson, Frank M.",
+      "year": 1970,
+      "est_tokens": 6657,
+      "n_questions": 8,
+      "article_sha256": "8bc969b8b1ca6e04a8d5ef6ea401bb6b41289651dd55d9f2ce2497d73ae15fd6",
+      "provider_token_count": 10111,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51687",
+      "title": "The Spy in the Elevator",
+      "author": "Westlake, Donald E.",
+      "year": 1970,
+      "est_tokens": 7171,
+      "n_questions": 8,
+      "article_sha256": "e148b278eac2036e0201154515f1ac0d92ffeb831fd4c90b54cc81006065aec5",
+      "provider_token_count": 11135,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "51688",
+      "title": "The Air of Castor Oil",
+      "author": "Harmon, Jim",
+      "year": 1972,
+      "est_tokens": 7091,
+      "n_questions": 8,
+      "article_sha256": "bc75e426077cddaaa30dee507a97f60292c874a814eccb36a305e14400bdadaa",
+      "provider_token_count": 11289,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "61467",
+      "title": "Muck Man",
+      "author": "Dodge, Fremont",
+      "year": 1958,
+      "est_tokens": 6297,
+      "n_questions": 8,
+      "article_sha256": "19d902aed95c6d0058baa21f4dff09dc174e7aadf56157ff3e991c22f746dc6c",
+      "provider_token_count": 9938,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "62139",
+      "title": "Captain Chaos",
+      "author": "Bond, Nelson S.",
+      "year": 1957,
+      "est_tokens": 6031,
+      "n_questions": 8,
+      "article_sha256": "224f98498d2c00f0195d248ba2e8b79e4a4eb01e9238f8ae34c8967f70c20492",
+      "provider_token_count": 10313,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "62261",
+      "title": "Planet of No-Return",
+      "author": "Peacock, Wilbur S.",
+      "year": 1950,
+      "est_tokens": 6102,
+      "n_questions": 8,
+      "article_sha256": "445c56c58f6a6db5154a8af5f86a899ddbc81e2d724b74033a798623c582938b",
+      "provider_token_count": 10630,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "62498",
+      "title": "Castaways of Eros",
+      "author": "Bond, Nelson S.",
+      "year": 1957,
+      "est_tokens": 6539,
+      "n_questions": 8,
+      "article_sha256": "176db759e0fc4cccefeee60840d4ee27931de9fd8b44afa8609f1b6054d5118c",
+      "provider_token_count": 11427,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "63041",
+      "title": "Morgue Ship",
+      "author": "Bradbury, Ray",
+      "year": 1954,
+      "est_tokens": 5087,
+      "n_questions": 8,
+      "article_sha256": "d1c0090afb3734004d6a0a310db18b704632a691882bfc63afb625a564831e15",
+      "provider_token_count": 8822,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "63130",
+      "title": "Mr. Meek Plays Polo",
+      "author": "Simak, Clifford D.",
+      "year": 1953,
+      "est_tokens": 6030,
+      "n_questions": 8,
+      "article_sha256": "ad2b3b7631e520985ecf65d4183cbfb6068d18532147201dbf516d746c30438a",
+      "provider_token_count": 10056,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "63616",
+      "title": "Hagerty's Enzymes",
+      "author": "Haley, A. L.",
+      "year": 1966,
+      "est_tokens": 6317,
+      "n_questions": 8,
+      "article_sha256": "cf84ba1ac2388e89bd0058fb7cf7d234323fe6b768f512d48721f20852903c4d",
+      "provider_token_count": 10632,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    },
+    {
+      "article_id": "99911",
+      "title": "New work order",
+      "author": "Geraldine Bedell",
+      "year": 2016,
+      "est_tokens": 5067,
+      "n_questions": 8,
+      "article_sha256": "5d9bf3ece565cda39c280d9ee1fe4edc02a28e64cc14cd3f6fbd060c29eaff4b",
+      "provider_token_count": 7603,
+      "provider_token_count_model": "claude-sonnet-5-5"
+    }
+  ],
+  "token_count_model": "claude-sonnet-5-5",
+  "token_count_utc": "2026-10-17T15:37:21.107914+00:00"
+}

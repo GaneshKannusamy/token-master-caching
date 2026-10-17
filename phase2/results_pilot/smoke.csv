@@ -1,0 +1,4 @@
+ts_utc,run_id,rep,arm,arm_name,model,passage_id,request_index_in_passage,is_warmup,question_unique_id,article_sha256,cache_creation_input_tokens,cache_read_input_tokens,input_tokens,output_tokens,total_input_tokens,ttft_ms,latency_ms,stop_reason,raw_answer,pred_label,gold_label,correct,error
+2026-10-17T17:49:31.119403+00:00,20261017T174931Z,1,C,explicit,claude-sonnet-5-5,30035,0,1,30035_C0HFCNPI_2,16f1809550e9b092056aa2aa5f52bac86d6dbd810aeb5e2db50afc21c94817fc,6608,0,140,3,6748,1351.0,1372.1,end_turn,B,2,2,1,
+2026-10-17T17:49:33.496759+00:00,20261017T174931Z,1,C,explicit,claude-sonnet-5-5,30035,1,0,30035_C0HFCNPI_6,16f1809550e9b092056aa2aa5f52bac86d6dbd810aeb5e2db50afc21c94817fc,0,6608,131,3,6739,1110.9,1111.9,end_turn,C,3,3,1,
+2026-10-17T17:49:35.613833+00:00,20261017T174931Z,1,C,explicit,claude-sonnet-5-5,30035,2,0,30035_SLGX7NNR_2,16f1809550e9b092056aa2aa5f52bac86d6dbd810aeb5e2db50afc21c94817fc,0,6608,96,3,6704,1011.0,1021.8,end_turn,B,2,2,1,

@@ -1,0 +1,12 @@
+# local environment
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# never commit credentials
+.env
+*.key
+
+# synthetic data is for testing analyze.py only; never publish it
+phase2/results_synthetic/

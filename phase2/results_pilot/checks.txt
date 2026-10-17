@@ -1,0 +1,6 @@
+PASS  C: hit ratio >= 0.85 on every rep
+PASS  C: effective input cost multiplier <= 0.35
+PASS  A: zero cache reads on every rep
+FAIL  C: mean TTFT lower than A
+PASS  A/B/C accuracy within 5 points of each other ({'A': 0.952, 'C': 0.952})
+PASS  C: no non-warmup request with zero cache reads (0 misses of 21)

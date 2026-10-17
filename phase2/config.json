@@ -1,0 +1,25 @@
+{
+  "model": "claude-sonnet-5-5",
+  "min_cacheable_prefix_tokens": 512,
+  "selection_path": "../phase1/selection.jsonl",
+  "manifest_path": "../phase1/manifest.json",
+  "results_dir": "results",
+  "max_tokens": 8,
+  "thinking": {
+    "type": "between_tools"
+  },
+  "output_config": {
+    "effort": "high"
+  },
+  "inter_request_sleep_s": 1.0,
+  "inter_passage_sleep_s": 2.0,
+  "pricing_multipliers": {
+    "uncached_input": 1.0,
+    "cache_write_5m": 1.25,
+    "cache_read": 0.1
+  },
+  "base_input_price_per_mtok_usd": 2.0,
+  "base_output_price_per_mtok_usd": 10.0,
+  "instructions": "You are answering a multiple-choice reading comprehension question about the story provided. Read the story carefully. Reply with only the letter of the correct option (A, B, C or D) and nothing else.",
+  "pricing_checked_utc": "2026-10-17"
+}

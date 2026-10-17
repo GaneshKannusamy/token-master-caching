@@ -1,0 +1,3 @@
+arm,rep,requests,hit_ratio,write_ratio,effective_cost_multiplier,mean_ttft_ms,p50_ttft_ms,accuracy,non_letter_answers,mean_cost_per_request_usd,cost_per_request_incl_warmup_usd
+A,1,140,0.0,0.0,1.0,1082.6571428571428,1046.8,0.8857142857142857,2,0.0198283,0.019832562499999998
+C,1,140,0.9889084599781647,0.0,0.10998238601965174,1050.9592857142857,1024.2,0.9,1,0.0022077428571428575,0.0050263875
