@@ -174,3 +174,9 @@ https://arxiv.org/abs/2112.08608). Passages are Project Gutenberg texts in the p
 domain. Selection and filters are recorded in `phase1/manifest.json`. The word-count
 estimates used for selection ran about 1.6x below the provider's token counts; the
 real passages are 6,700 to 12,000 tokens.
+
+## License
+
+Code in this repository is released under the MIT License; see `LICENSE`. The
+QuALITY dataset and the Project Gutenberg passages it contains have their own
+terms, noted above.
