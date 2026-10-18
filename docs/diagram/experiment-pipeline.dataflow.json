@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "Token Master caching experiment: data flow from QuALITY to the pre-registered checks",
+    "output": ".archify/dataflow-experiment-pipeline-20261018-094951/experiment-pipeline.html",
+    "locale": "en",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/GaneshKannusamy/token-master-caching.git",
+      "provider": "github",
+      "link_mode": "web",
+      "revision": "d892d4d9247f121b20c62e69da750350c257605d"
+    }
+  },
+  "stages": [
+    {
+      "label": "Source data"
+    },
+    {
+      "label": "Phase 1: freeze"
+    },
+    {
+      "label": "Phase 2: harness"
+    },
+    {
+      "label": "Provider"
+    },
+    {
+      "label": "Results and analysis"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "quality",
+      "type": "external",
+      "label": "QuALITY dev split",
+      "sublabel": "nyu-mll/quality, 115 articles",
+      "tag": "public domain",
+      "stage": 0,
+      "row": 0,
+      "sources": [
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 14,
+          "end_line": 24,
+          "label": "reads the split"
+        }
+      ]
+    },
+    {
+      "id": "prepare",
+      "type": "backend",
+      "label": "prepare_selection.py",
+      "sublabel": "filter, seeded shuffle, 20 x 8",
+      "tag": "seed 20261017",
+      "stage": 1,
+      "row": 0,
+      "sources": [
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 21,
+          "end_line": 24
+        },
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 50,
+          "end_line": 55,
+          "label": "filter and shuffle"
+        },
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 65,
+          "end_line": 80,
+          "label": "hash and write rows"
+        }
+      ]
+    },
+    {
+      "id": "selection",
+      "type": "database",
+      "label": "selection.jsonl",
+      "sublabel": "160 rows, SHA-256 per story",
+      "tag": "frozen",
+      "stage": 1,
+      "row": 1,
+      "sources": [
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 78,
+          "end_line": 80,
+          "label": "writer"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 53,
+          "end_line": 54,
+          "label": "reader"
+        }
+      ]
+    },
+    {
+      "id": "config",
+      "type": "database",
+      "label": "config.json",
+      "sublabel": "model, prices, pinned thinking",
+      "tag": "pinned",
+      "stage": 1,
+      "row": 2,
+      "sources": [
+        {
+          "path": "phase2/config.json",
+          "line": 1,
+          "end_line": 25
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 45,
+          "end_line": 50,
+          "label": "load_cfg"
+        }
+      ]
+    },
+    {
+      "id": "manifest",
+      "type": "database",
+      "label": "manifest.json",
+      "sublabel": "20 passages, provider counts",
+      "stage": 2,
+      "row": 0,
+      "sources": [
+        {
+          "path": "phase1/prepare_selection.py",
+          "line": 95,
+          "end_line": 95,
+          "label": "first write"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 151,
+          "end_line": 171,
+          "label": "count-tokens rewrite"
+        }
+      ]
+    },
+    {
+      "id": "harness",
+      "type": "backend",
+      "label": "run_experiment.py",
+      "sublabel": "count-tokens, smoke, run",
+      "tag": "arms A to E",
+      "stage": 2,
+      "row": 1,
+      "sources": [
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 76,
+          "end_line": 111,
+          "label": "build_request"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 123,
+          "end_line": 137,
+          "label": "send, streamed"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 220,
+          "end_line": 262,
+          "label": "cmd_run"
+        }
+      ]
+    },
+    {
+      "id": "api",
+      "type": "external",
+      "label": "Anthropic API",
+      "sublabel": "Messages API, claude-sonnet-5-5",
+      "tag": "usage counters",
+      "stage": 3,
+      "row": 1,
+      "sources": [
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 120,
+          "end_line": 120,
+          "label": "client"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 128,
+          "end_line": 128,
+          "label": "messages.stream"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 161,
+          "end_line": 161,
+          "label": "count_tokens"
+        }
+      ]
+    },
+    {
+      "id": "csv",
+      "type": "database",
+      "label": "results/rep1.csv",
+      "sublabel": "one row per request, 320 rows",
+      "tag": "append-only",
+      "stage": 4,
+      "row": 0,
+      "sources": [
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 220,
+          "end_line": 221,
+          "label": "path and resume keys"
+        },
+        {
+          "path": "phase2/run_experiment.py",
+          "line": 234,
+          "end_line": 262,
+          "label": "writer"
+        }
+      ]
+    },
+    {
+      "id": "analyze",
+      "type": "backend",
+      "label": "analyze.py",
+      "sublabel": "metrics, six checks, chart",
+      "tag": "pre-registered",
+      "stage": 4,
+      "row": 2,
+      "sources": [
+        {
+          "path": "phase2/analyze.py",
+          "line": 27,
+          "end_line": 50,
+          "label": "load and cost"
+        },
+        {
+          "path": "phase2/analyze.py",
+          "line": 80,
+          "end_line": 106,
+          "label": "checks"
+        },
+        {
+          "path": "phase2/analyze.py",
+          "line": 131,
+          "end_line": 144,
+          "label": "main"
+        }
+      ]
+    },
+    {
+      "id": "outputs",
+      "type": "database",
+      "label": "Analysis outputs",
+      "sublabel": "summary.csv, checks.txt, chart png",
+      "stage": 4,
+      "row": 3,
+      "sources": [
+        {
+          "path": "phase2/analyze.py",
+          "line": 140,
+          "end_line": 144,
+          "label": "csv and txt writes"
+        },
+        {
+          "path": "phase2/analyze.py",
+          "line": 128,
+          "end_line": 128,
+          "label": "savefig"
+        }
+      ]
+    }
+  ],
+  "flows": [
+    {
+      "id": "f-articles",
+      "from": "quality",
+      "to": "prepare",
+      "label": "115 dev articles",
+      "classification": "raw dataset"
+    },
+    {
+      "id": "f-rows",
+      "from": "prepare",
+      "to": "selection",
+      "label": "160 frozen rows",
+      "classification": "questions + story"
+    },
+    {
+      "id": "f-stats",
+      "from": "prepare",
+      "to": "manifest",
+      "label": "stats + SHA-256",
+      "classification": "selection record"
+    },
+    {
+      "id": "f-select-harness",
+      "from": "selection",
+      "to": "harness",
+      "label": "rows per arm",
+      "classification": "frozen input",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f-config-harness",
+      "from": "config",
+      "to": "harness",
+      "label": "model, thinking",
+      "classification": "pinned settings"
+    },
+    {
+      "id": "f-config-analyze",
+      "from": "config",
+      "to": "analyze",
+      "label": "list prices",
+      "classification": "pricing multipliers"
+    },
+    {
+      "id": "f-counts",
+      "from": "harness",
+      "to": "manifest",
+      "label": "token counts",
+      "classification": "count-tokens"
+    },
+    {
+      "id": "f-request",
+      "from": "harness",
+      "to": "api",
+      "label": "prompt + marker",
+      "classification": "per arm placement",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f-usage",
+      "from": "api",
+      "to": "harness",
+      "label": "usage + answer",
+      "classification": "cache read/write tokens",
+      "variant": "emphasis",
+      "route": "bottom-channel"
+    },
+    {
+      "id": "f-rowwrite",
+      "from": "harness",
+      "to": "csv",
+      "label": "row per request",
+      "classification": "appended, resumable",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f-rows-analyze",
+      "from": "csv",
+      "to": "analyze",
+      "label": "rep*.csv rows",
+      "classification": "errors dropped",
+      "variant": "emphasis"
+    },
+    {
+      "id": "f-outputs",
+      "from": "analyze",
+      "to": "outputs",
+      "label": "summary + checks",
+      "classification": "pass/fail"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "One request shape, five marker placements",
+      "items": [
+        "Every arm sends instructions, the story and one question in the same order; only the cache_control marker moves",
+        "A: no marker. B: top-level automatic. C: on the story block. D: like C with a timestamp above it. E: on the question block",
+        "Each (arm, rep) pair embeds its own tag in the instructions so arms never read each other's cache entries"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Guards in the harness",
+      "items": [
+        "Asserts the story block is byte-identical to the frozen row before every request",
+        "Appends to results/rep<N>.csv, skips rows already done, retries rows with errors, stops on billing or auth errors",
+        "Sonnet 5.5 rejects temperature; thinking is pinned off with between_tools in config.json for every arm"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Pre-registered checks",
+      "items": [
+        "Six criteria live in analyze.py::checks and are not moved after a run",
+        "Accuracy is re-scored from raw answers with the current parser so old and new rows agree",
+        "Run of 17 Oct 2026, arms A and C: hit ratio 0.989, cost multiplier 0.110, all six checks passed"
+      ]
+    }
+  ]
+}

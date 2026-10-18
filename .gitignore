@@ -10,3 +10,6 @@ __pycache__/
 
 # synthetic data is for testing analyze.py only; never publish it
 phase2/results_synthetic/
+
+# archify working folders; the delivered diagram lives in docs/diagram/
+.archify/

@@ -22,6 +22,16 @@ D and E and repetitions 2 and 3 have not been run yet. Raw per-request rows are 
 `phase2/results/rep1.csv`; the three-passage pilot that preceded the full run is in
 `phase2/results_pilot/`.
 
+## How the pieces fit
+
+![Data flow of the experiment, from the QuALITY split through the harness and the Anthropic API to the pre-registered checks](docs/diagram/experiment-pipeline.png)
+
+The interactive version, [docs/diagram/experiment-pipeline.html](docs/diagram/experiment-pipeline.html),
+links every node to the source lines that prove it at the pinned commit. GitHub shows the
+file as source; download it and open it in a browser, or clone the repository. The diagram
+was generated with [Archify](https://github.com/tt-a1i/archify) from
+`docs/diagram/experiment-pipeline.dataflow.json`.
+
 ```text
 token-master-caching/
 ├── README.md
